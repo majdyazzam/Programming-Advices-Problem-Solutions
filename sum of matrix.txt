@@ -1,0 +1,59 @@
+
+
+#include <iostream>
+#include<iomanip>
+#include<string>
+using namespace std;
+
+int GetRandomNumber(int first,int last) {
+
+	int result;
+	return result = rand() % (last - first + 1) + first;
+}
+
+void fillArrayRandomNumber(int arr1[3][3],int row,int col) {
+	for (int i = 0; i < row;i++) {
+		for (int j = 0; j < col;j++) {
+			arr1[i][j] = GetRandomNumber(0, 100);
+		}
+	}
+}
+
+void Print2DArray(int arr1[3][3], int row, int col) {
+
+	for (int i = 0; i < row; i++) {
+		for (int j = 0; j < col; j++) {
+			//cout  << arr1[i][j] << setw(5);
+			printf("%0*d   ",2,arr1[i][j]);
+		}
+		cout << "\n";
+	}
+}
+
+int SumOfMatrix(int arr1[3][3], int row, int col) {
+	int sum = 0;
+	for (int i = 0; i < row;i++) {
+		for (int j = 0; j < col;j++) {
+			sum += arr1[i][j];
+		}
+	}
+	return sum;
+}
+
+int main()
+{
+	srand((unsigned)time(NULL));
+	
+	int arr1[3][3];
+	
+
+	fillArrayRandomNumber(arr1,3,3);
+	
+	cout << "Matrix 1 : \n";
+	Print2DArray(arr1,3,3);
+
+	cout << "\n\n Sum of matrix is : " << SumOfMatrix(arr1, 3, 3);
+	system("pause>0");
+	return 0;
+}
+

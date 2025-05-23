@@ -1,0 +1,122 @@
+//
+//
+//#include <iostream>
+//#include<iomanip>
+//#include<string>
+//using namespace std;
+//
+//string ReadString() {
+//	string txt;
+//	cout << "Please Enter Your String : \n";
+//	getline(cin, txt);
+//	return txt;
+//}
+//
+//char ReadChar() {
+//	char txt;
+//	cout << "\nPlease Enter Your Character : \n";
+//	cin >> txt;
+//	return txt;
+//}
+//
+//string ConvertAllLetersToSmall(string txt) {
+//
+//	for (short i = 0; i < txt.length(); i++)
+//	{
+//		if (isupper(txt[i]))
+//			txt[i]=tolower(txt[i]);
+//	}
+//	return txt;
+//}
+//
+//short CountCharInLettersCaseSencitive(string txt,char ch) {
+//	short  Count = 0;
+//
+//	for (short i = 0; i < txt.length(); i++)
+//	{
+//		if ((txt[i])==ch)
+//			Count++;
+//
+//	}
+//	return Count;
+//}
+//short CountCharInLettersNotCC(string txt, char ch) {
+//	string stxt = ConvertAllLetersToSmall(txt);
+//	short  Count = 0;
+//
+//	for (short i = 0; i < txt.length(); i++)
+//	{
+//		if ((stxt[i]) == ch)
+//			Count++;
+//
+//	}
+//	return Count;
+//}
+//
+//
+//int main()
+//{
+//	string s1 = ReadString();
+//	char ch = ReadChar();
+//	short count = 0;
+//	count = CountCharInLettersCaseSencitive(s1, ch);
+//	cout << "\nLetter \' "<<ch<<" \' count = " << count << endl;
+//	ch=tolower(ch);
+//	cout << "\nLetter \' " << ch << " \' Or \'";
+//	count = CountCharInLettersNotCC(s1, ch);
+//	ch=toupper(ch);
+//	cout << ch << "\' count = " << count << endl;
+//		return 0;
+//}
+
+// abu hadhood solution the idea is to invert the letter to small and make comarission 
+
+#include<string>
+#include<iostream>
+using namespace std;
+string  ReadString()
+{ 
+	string S1; 
+	cout << "\nPlease Enter Your String?\n";   
+	getline(cin, S1); return S1; 
+} 
+char  ReadChar() 
+{ 
+	char Ch1; 
+	cout << "\nPlease Enter a Character?\n";   
+	cin >> Ch1;
+	return Ch1; 
+}
+char  InvertLetterCase(char char1) 
+{ 
+	return isupper(char1) ? tolower(char1) : toupper(char1);
+} 
+short  CountLetter(string S1, char Letter, bool MatchCase = true)
+{ 
+	short Counter = 0; 
+	for (short i = 0; i < S1.length(); i++)   
+	{ 
+		if (MatchCase)   
+		{
+			if (S1[i] == Letter)  
+				Counter++; 
+		}
+		else   
+		{
+			if (tolower(S1[i]) == tolower(Letter)) 
+				Counter++; 
+		}  
+	}
+	return Counter;
+} 
+
+int main()
+{
+	string S1 = ReadString();
+	char Ch1 = ReadChar(); 
+	cout << "\nLetter \'" << Ch1 << "\' Count = " << CountLetter(S1, Ch1);  
+	cout << "\nLetter \'" << Ch1 << "\' "; 
+	cout << "Or \'" << InvertLetterCase(Ch1) << "\' ";  
+	cout << " Count = " << CountLetter(S1, Ch1, false);  
+	system("pause>0"); 
+}

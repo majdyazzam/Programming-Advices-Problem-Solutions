@@ -1,0 +1,28 @@
+
+
+#include <iostream>
+#include<iomanip>
+#include<string>
+using namespace std;
+
+void fibonacciNum(short num) {
+	int FebNum = 0;
+	int prev2 = 0, prev1 = 1;
+		cout<<"1    ";
+		for (short i = 2; i <= num; i++) {
+
+			FebNum = prev1 + prev2;
+			cout << FebNum << "   ";
+			prev2 = prev1;
+			prev1 = FebNum;
+		}
+}
+
+int main()
+{
+	fibonacciNum(10);
+
+
+	return 0;
+}
+

@@ -1,0 +1,50 @@
+
+
+#include <iostream>
+#include<iomanip>
+#include<string>
+using namespace std;
+
+string ReadString() {
+	string txt;
+	cout << "Please Enter Your String : \n";
+	getline(cin, txt);
+	return txt;
+}
+
+string ConvertToLower(string txt) {
+
+	for (short i = 0; i < txt.length(); i++)
+	{	
+			txt[i]=tolower(txt[i]);
+	}
+	return txt;
+}
+
+
+string ConvertToUpper(string txt) {
+
+	for (short i = 0; i < txt.length(); i++)
+	{
+		txt[i] = toupper(txt[i]);
+	}
+	return txt;
+}
+
+
+int main()
+{
+	string s1 = ReadString();
+
+	cout << "To Upper Case : \n";
+	s1= ConvertToUpper(s1);
+	cout << s1 << endl;
+
+	cout << "To Lower Case : \n";
+	s1 = ConvertToLower(s1);
+	cout << s1 << endl;
+
+
+	return 0;
+}
+

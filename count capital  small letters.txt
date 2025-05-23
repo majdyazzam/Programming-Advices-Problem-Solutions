@@ -1,0 +1,74 @@
+
+
+#include <iostream>
+#include<iomanip>
+#include<string>
+using namespace std;
+
+string ReadString() {
+	string txt;
+	cout << "Please Enter Your String : \n";
+	getline(cin, txt);
+	return txt;
+}
+
+
+
+enum enWhatToCount { smallLetter = 0, CapitalLetter = 1,All=2 };
+
+short CountLetter(string txt, enWhatToCount whatCount) {
+	short counter = 0;
+
+	for (short i = 0; i < txt.length(); i++)
+	{
+		if (whatCount == enWhatToCount::All) {
+			return txt.length();
+		}
+
+		if (whatCount== enWhatToCount::CapitalLetter && isupper(txt[i]))
+			counter++;
+		if (whatCount == enWhatToCount::smallLetter && islower(txt[i]))
+			counter++;
+	}
+	return counter;
+}
+
+short CountCapitalLetters(string txt) {
+	short UpperCount = 0;
+
+	for (short i = 0; i < txt.length(); i++)
+	{
+		if (isupper(txt[i]))
+			UpperCount++;
+		
+	}
+	return UpperCount;
+}
+
+short CountSmallLetters(string txt) {
+	short  LowerCount = 0;
+
+	for (short i = 0; i < txt.length(); i++)
+	{
+		if (islower(txt[i]))
+			LowerCount++;
+
+	}
+	return LowerCount;
+}
+
+
+int main()
+{
+	string s1 = ReadString();
+	//cout << "\nString Length = " << s1.length() << endl;
+	//cout << "Capital letter count = " << CountCapitalLetters(s1) << endl;
+	//cout << "Lower letter count = " << CountSmallLetters(s1) << endl;
+
+	//USING ENUM		
+	cout << "\nString Length = " << CountLetter(s1, enWhatToCount::All) << endl;
+	cout << "Capital letter count = " << CountLetter(s1, enWhatToCount::CapitalLetter) << endl;
+	cout << "Lower letter count = " << CountLetter(s1,enWhatToCount::smallLetter) << endl;
+	return 0;
+}
+

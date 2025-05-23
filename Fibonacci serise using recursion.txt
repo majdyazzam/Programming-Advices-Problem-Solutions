@@ -1,0 +1,31 @@
+
+
+#include <iostream>
+#include<iomanip>
+#include<string>
+using namespace std;
+
+void fibonacciNum(int num , short prev1,short prev2) {
+	
+	int FebNum = 0;
+	if (num > 0) {
+		FebNum = prev2 + prev1;
+		prev2 = prev1;
+		prev1 = FebNum;
+		cout << FebNum << "   ";
+		fibonacciNum(num-1,prev1,prev2);
+	}
+
+		
+	
+	
+}
+
+int main()
+{
+	fibonacciNum(10,0,1);
+
+
+	return 0;
+}
+

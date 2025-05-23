@@ -1,0 +1,31 @@
+
+
+#include <iostream>
+#include<iomanip>
+#include<string>
+using namespace std;
+
+char ReadString() {
+	char txt;
+	cout << "Please Enter Your String : \n";
+	cin>>txt;
+	return txt;
+}
+
+
+
+char InvertCharacter(char txt) {
+
+	return isupper(txt) ? tolower(txt) : toupper(txt);
+}
+
+
+int main()
+{
+	char s1 = ReadString();
+
+	cout << InvertCharacter(s1);
+
+	return 0;
+}
+

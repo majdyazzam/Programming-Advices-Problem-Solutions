@@ -1,0 +1,75 @@
+
+
+#include <iostream>
+#include<iomanip>
+#include<string>
+using namespace std;
+int GetRandomNumber(int first,int last) {
+	return rand() % (last - first + 1) + first;
+}
+
+void FillRandomNumberInTOArray(int arr[3][3],short rows,short col) {
+	
+
+	for (int i = 0; i < rows; i++) {
+			for (int j = 0; j < col;j++) {
+
+				arr[i][j] = GetRandomNumber(1, 100);
+			}
+		}
+}
+
+void printArray(int arr[3][3],int rows,int col) {
+	
+	for (int i = 0; i < rows;i++) {
+		for (int j = 0; j < col;j++) {
+			
+			cout  << setw(5) << arr[i][j]<<"   ";
+			
+		}
+		cout << endl;
+	}
+}
+
+int SumOfArrayRowHadhood(int arr[3][3], int NumOfRow, int col) {
+	int sum = 0;
+	for (int j = 0; j <= col-1; j++)
+	{
+		sum += arr[NumOfRow][j];
+	}
+	return sum;
+}
+void SumOfArrayRowMajdy(int arr[3][3],int row,int col) {
+	int sum = 0;
+	for (int i = 0; i < row; i++)
+	{
+		for (int j = 0; j < col;j++) {
+			
+			sum += arr[i][j];
+		}
+		cout << " Row " << i + 1 << " Sum = " << sum << endl;
+		sum = 0;
+	}
+}
+void printEachRowSum(int arr[3][3], int row, int col) {
+	cout << "\nThe Follwing are the sum of each row in the matrix :\n";
+	for (int i = 0; i < row; i++)
+	{
+		cout << " Row " << i + 1 << " Sum = " << SumOfArrayRowHadhood(arr,i,col) << endl;
+	}
+}
+int main()
+{
+	srand((unsigned) time(NULL));
+	int arr[3][3];
+	FillRandomNumberInTOArray(arr, 3, 3);
+	cout << "\nThe Follwing is a 3  X 3 random matrix :\n";
+	printArray(arr,3,3);
+	//cout << "\nThe Follwing are the sum of each row in the matrix :\n";
+	//SumOfArrayRowMajdy(arr, 3, 3);
+	printEachRowSum(arr, 3, 3);
+	
+	system("pause>0");
+	return 0;
+}
+

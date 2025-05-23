@@ -1,0 +1,59 @@
+
+
+#include <iostream>
+#include<iomanip>
+#include<string>
+using namespace std;
+
+
+void Print2DArray(int arr1[3][3], int row, int col) {
+
+	for (int i = 0; i < row; i++) {
+		for (int j = 0; j < col; j++) {
+			//cout  << arr1[i][j] << setw(5);
+			printf("%0*d   ",2,arr1[i][j]);
+		}
+		cout << "\n";
+	}
+}
+
+int FindMinNumInArray(int arr1[3][3],int row,int col) {
+
+	int min;
+	min = arr1[0][0];
+	for (int i = 0; i < row; i++) {
+		for (int j = 0; j < col; j++) {
+			
+			if (arr1[i][j] < min)
+				min = arr1[i][j];
+		}
+	}
+	return min;
+}
+
+int FindMaxNumberInArray(int arr1[3][3], int row, int col) {
+	int max;
+	max = arr1[0][0];
+	for (int i = 0; i < row; i++) {
+		for (int j = 0; j < col; j++) {
+		
+		if (arr1[i][j] > max)
+			max = arr1[i][j];
+		}
+	}
+	return max;
+}
+
+int main()
+{
+	
+	int arr1[3][3] = { {77,5,12} ,{22,20,1} ,{1,0,9} };
+	
+	cout << "Array 1 : \n";
+	Print2DArray(arr1, 3, 3);
+
+	cout<<"\nMax number is : "<<FindMaxNumberInArray(arr1, 3, 3);
+	cout << "\nMin number is : " << FindMinNumInArray(arr1, 3, 3);
+	return 0;
+}
+

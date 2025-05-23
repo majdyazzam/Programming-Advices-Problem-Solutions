@@ -1,0 +1,76 @@
+
+
+#include <iostream>
+#include<iomanip>
+#include<string>
+using namespace std;
+
+int GetRandomNumber(int first,int last) {
+	return rand() % (last - first + 1) + first;
+}
+
+void FillRandomNumberInTOArray(int arr[3][3],short rows,short col) {
+	
+
+	for (int i = 0; i < rows; i++) {
+			for (int j = 0; j < col;j++) {
+
+				arr[i][j] = GetRandomNumber(1, 100);
+			}
+		}
+}
+
+void PrintArrayElement(int arr[3][3], short rows, short col) {
+	cout << "The following is a 3X3 random matrix : \n";
+	for (int i = 0; i < rows;i++) {
+		for (int j = 0; j < col; j++) {
+			cout <<setw(5)<< arr[i][j];
+		}
+		cout << endl;
+	}
+}
+
+int SumOfColArray(int arr[3][3], int row, int ColNum) {
+
+	int sum = 0;
+	for (int i = 0; i < row;i++) {
+		sum += arr[i][ColNum];
+	}
+	return sum;
+}
+
+void SaveSumOfColArray(int arr[3][3], short rows, short col,int arr2[3]) {
+	
+	
+	for (int i = 0; i < col; i++) {
+
+		 arr2[i] = SumOfColArray(arr, rows, i);
+
+	}
+
+}
+
+void PrintSumOfColArray(int arr2[3],int size) {
+
+	cout << "The folloing are the sum of each colomn in matrix Saved into other array :\n";
+	for (int i = 0; i < size; i++) {
+		
+
+		cout << "Col " << i + 1 << " Sum = " << arr2[i] << endl;
+	}
+	
+}
+
+int main()
+{
+	srand((unsigned) time(NULL));
+	int arr[3][3];
+	int arr2[3];
+	FillRandomNumberInTOArray(arr,3,3);
+	PrintArrayElement(arr, 3, 3);
+	SaveSumOfColArray(arr, 3, 3,arr2);
+	PrintSumOfColArray(arr2, 3);
+	system("pause>0");
+	return 0;
+}
+

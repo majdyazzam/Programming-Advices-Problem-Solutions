@@ -1,0 +1,40 @@
+#include <iostream>
+#include<string>
+#include<vector>
+using namespace std;
+
+
+string JoinString(vector <string> VStr,string separator) {
+	string JoinStr;
+	for (short i = 0; i < VStr.size();i++) {
+		if (i != VStr.size()-1)
+			JoinStr += VStr.at(i) + separator;
+		else
+			JoinStr += VStr.at(i);
+	}
+	return JoinStr;
+
+	//OR
+
+	/*for (string& s : VStr) {
+		JoinStr = JoinStr + s + separator;
+	}
+	return (JoinStr.substr(0, JoinStr.length() - separator.length()));*/
+}
+
+
+
+int main() {
+
+	vector <string> VStr = {"majdy","nabeel","alazzam"};
+	
+	cout << JoinString(VStr, "###");
+
+	
+	
+
+
+	
+	
+	return 0;
+}

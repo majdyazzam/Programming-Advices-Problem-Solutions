@@ -1,0 +1,41 @@
+
+#include<string>
+#include<iostream>
+using namespace std;
+char ReadChar() {
+	char ch;
+	cout << "Please Enter a vowel character : \n";
+	cin >> ch;
+	return ch;
+}
+
+bool checkVowelChar(char ch) {
+
+	ch = tolower(ch);
+
+	switch (ch) {
+	case'a':
+	case'o':
+	case'u':
+	case'e':
+	case'i':
+		return true;
+		break;
+	default:
+		return false;
+	}
+	// or
+	// return ((ch == 'a' || ch == 'u' || ch == 'o' || ch == 'i' || ch == 'e'));
+}
+int main()
+{
+	char ch;
+	ch = ReadChar();
+	
+	if (checkVowelChar(ch))
+		cout << "Yes Letter \' " << ch << " \' is Vowel \n";
+	else
+		cout << "No Letter \' " << ch << " \' isn't Vowel \n";
+
+	system("pause>0"); 
+}

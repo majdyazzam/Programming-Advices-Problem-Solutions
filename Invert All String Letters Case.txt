@@ -1,0 +1,41 @@
+
+
+#include <iostream>
+#include<iomanip>
+#include<string>
+using namespace std;
+
+string ReadString() {
+	string txt;
+	cout << "Please Enter Your String : \n";
+	cin >> txt;
+	return txt;
+}
+
+
+
+char InvertCharacter(char txt) {
+
+	return isupper(txt) ? tolower(txt) : toupper(txt);
+}
+
+string InvertAllStringLettersCase(string txt) {
+
+	for (short i = 0; i < txt.length(); i++)
+	{
+		txt[i] = InvertCharacter(txt[i]);
+	}
+	return txt;
+}
+
+
+int main()
+{
+	string s1 = ReadString();
+
+	cout <<"\nString after Inverting All Letter Case:\n";
+	s1 = InvertAllStringLettersCase(s1);
+	cout << s1 << endl;
+	return 0;
+}
+

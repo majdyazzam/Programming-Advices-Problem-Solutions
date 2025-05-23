@@ -1,0 +1,35 @@
+
+#include<string>
+#include<iostream>
+using namespace std;
+string ReadChar() {
+	string str;
+	cout << "Please Enter a Your String : \n";
+	getline(cin,str);
+	return str;
+}
+
+bool checkVowelChar(char ch) {
+
+	ch = tolower(ch);
+
+	return ((ch == 'a' || ch == 'u' || ch == 'o' || ch == 'i' || ch == 'e'));
+}
+short CountVowel(string str) {
+	short count = 0;
+	for (int i = 0; i < str.length();i++) {
+
+		if (checkVowelChar(str[i]))
+			count++;
+	}
+	return count;
+}
+int main()
+{
+	string str;
+	str = ReadChar();
+	
+	cout << "Number of Vouwels is : " << CountVowel(str);
+
+	system("pause>0"); 
+}

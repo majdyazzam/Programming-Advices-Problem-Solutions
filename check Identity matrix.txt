@@ -1,0 +1,56 @@
+
+
+#include <iostream>
+#include<iomanip>
+#include<string>
+using namespace std;
+
+
+
+void Print2DArray(int arr1[3][3], int row, int col) {
+
+	for (int i = 0; i < row; i++) {
+		for (int j = 0; j < col; j++) {
+			//cout  << arr1[i][j] << setw(5);
+			printf("%0*d   ",2,arr1[i][j]);
+		}
+		cout << "\n";
+	}
+}
+
+
+bool CheckIdintity(int arr1[3][3],int row, int col) {
+
+	for (int i = 0; i < row;i++) {
+		for (int j = 0; j < col;j++) {
+			if (i == j && arr1[i][j] != 1) {
+				return false;
+			}
+
+			
+			else if (i != j && arr1[i][j] != 0) {
+				return false;
+			}
+				
+		}
+		
+	}
+	return  true;
+}
+
+int main()
+{
+
+	
+	int arr1[3][3] = { {1,0,0},{0,1,0},{0,0,1} };
+
+	Print2DArray(arr1, 3, 3);
+
+	if (CheckIdintity(arr1, 3, 3))
+		cout << "\nYes : both matricies are Idintity \n";
+	else
+		cout << "\nNo : both matricies are NOT Idintity \n";
+	
+	return 0;
+}
+

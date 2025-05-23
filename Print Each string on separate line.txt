@@ -1,0 +1,42 @@
+
+#include<string>
+#include<iostream>
+using namespace std;
+
+
+string ReadChar() {
+	string str;
+	cout << "Please Enter a Your String : \n";
+	getline(cin,str);
+	return str;
+}
+
+
+void PrintEachStringOnSeparateLine(string str) {
+
+	string delim = " ";
+	cout << "Your String Words is : \n\n";
+	short pos = 0;
+	string sword = "";
+	while ((pos=str.find(delim))!= std::string::npos) {
+		sword = str.substr(0,pos);
+		if (sword != "") {
+			cout << sword << endl;
+		}
+		str.erase(0, pos + delim.length());
+	}
+	if (str != "") {
+		cout << str << endl;
+	}
+	
+}
+int main()
+{
+	string str;
+	str = ReadChar();
+	
+	
+	PrintEachStringOnSeparateLine(str);
+
+	system("pause>0"); 
+}

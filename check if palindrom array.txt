@@ -1,0 +1,48 @@
+
+
+#include <iostream>
+#include<iomanip>
+#include<string>
+using namespace std;
+
+
+void Print2DArray(int arr1[3][3], int row, int col) {
+
+	for (int i = 0; i < row; i++) {
+		for (int j = 0; j < col; j++) {
+			//cout  << arr1[i][j] << setw(5);
+			printf("%0*d   ",2,arr1[i][j]);
+		}
+		cout << "\n";
+	}
+}
+
+
+bool IsPalindromMatrix (int arr1[3][3], int row, int col) {
+	
+	for (short i = 0; i < row; i++) {
+		for (short j = 0; j < col/2; j++) {
+		
+			if (arr1[i][j] != arr1[i][col-1-j])
+				return false;
+			break;
+		}
+	}
+	return true;
+}
+
+int main()
+{
+	
+	int arr1[3][3] = { {12,5,12} ,{22,20,22} ,{1,0,1} };
+	
+	cout << "Array 1 : \n";
+	Print2DArray(arr1, 3, 3);
+
+	if (IsPalindromMatrix(arr1, 3, 3))
+		cout << "Yes : It is palindrom . \n";
+	else
+		cout << "No : It is Not palindrom . \n";
+	return 0;
+}
+
