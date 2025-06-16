@@ -1,0 +1,35 @@
+#include <iostream>
+using namespace std;
+bool checkPositiveNumber(int number) {
+		return (number > 1);
+}
+int readNumber(string msg) {
+	int number;
+	do {
+		cout << msg;
+		cin >> number;
+	} while (!checkPositiveNumber(number));
+	return number;
+			
+}
+
+
+int sumDigits(int num) {
+	int number;
+	int sum = 0;
+	do {
+		number = num % 10;
+		num /= 10;
+		sum += number;
+	} while (num % 10 > 0);
+	return sum;
+}
+
+void printSumDigits(int sum,int number) {
+	cout << " sum of " << number << " is : " << sum << endl;
+}
+int main()
+{
+     int number = readNumber("Please Enter Positive Number : ");
+	printSumDigits(sumDigits(number),number);
+}
