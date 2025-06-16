@@ -1,0 +1,41 @@
+#include <iostream>
+using namespace std;
+bool checkPositiveNumber(int number) {
+		return (number > 1);
+}
+int readNumber(string msg) {
+	int number;
+	do {
+		cout << msg;
+		cin >> number;
+	} while (!checkPositiveNumber(number));
+	return number;
+			
+}
+bool checkPerfectNumber(int number) {
+	int sum = 0;
+	for (short i = 1; i < number; i++)
+	{
+		if (number%i==0) {
+			sum += i;
+		}
+		
+	}
+	return (sum == number);
+		
+}
+void printResult(int number) {
+	if (checkPerfectNumber(number))
+		cout << number << " is Perfect Number \n";
+	else
+		cout << number << " isn't Perfect Number \n";
+}
+
+int main()
+{
+
+	printResult(readNumber("Please Enter Positive Number : "));
+	
+
+}
+
