@@ -1,0 +1,40 @@
+#include <iostream>
+using namespace std;
+bool checkPositiveNumber(int number) {
+		return (number > 1);
+}
+int readNumber(string msg) {
+	int number;
+	do {
+		cout << msg;
+		cin >> number;
+	} while (!checkPositiveNumber(number));
+	return number;
+			
+}
+
+int findFrequency(int number,int reqNumber) {
+
+	int num1;
+	int count = 0;
+
+
+	while (number>0) {
+		num1 = number % 10;
+		if (num1 == reqNumber)
+			count++;
+		number /= 10;
+	}
+	return count;
+}
+void printFrequencyResult(int num, int reqNumber) {
+	cout << "Digit " << reqNumber << " Frequency is " << num << " Time(s)" << endl;
+}
+int main()
+{
+
+ int number1 = readNumber("Please Enter Positive Number : ");
+	int number2 = readNumber("Please Enter Frequent Number : ");
+
+	printFrequencyResult(findFrequency(number1, number2), number2);
+}

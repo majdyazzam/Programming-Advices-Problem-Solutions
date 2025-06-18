@@ -1,0 +1,28 @@
+#include <iostream>
+using namespace std;
+bool checkPositiveNumber(int number) {
+		return (number > 1);
+}
+int readNumber(string msg) {
+	int number;
+	do {
+		cout << msg;
+		cin >> number;
+	} while (!checkPositiveNumber(number));
+	return number;
+			
+}
+
+void PrintReservedNumber(int num){
+	int number;
+	do {
+		number =num% 10;
+		num /= 10;
+		cout << number << endl;
+	} while (num % 10 > 0);
+}
+int main()
+{
+	PrintReservedNumber(readNumber("Please Enter Positive Number : "));
+
+}
