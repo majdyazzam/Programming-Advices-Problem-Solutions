@@ -1,0 +1,27 @@
+#include <iostream>
+using namespace std;
+
+int readNnumber() {
+    int num = 0;
+   
+    do {
+cout << "Please Enter Positive Number : " << endl;
+        cin >> num;
+    } while (num < 0);
+        
+    return num;
+}
+void PrintLetterPattern(int number) {
+
+    for (int i = 97; i <= number+97; i++) {
+        for (int j = 97; j <= i; j++) {
+            cout << char(i);
+        }
+        cout << endl;
+    }
+}
+int main()
+{
+    PrintLetterPattern(readNnumber());
+   
+}
