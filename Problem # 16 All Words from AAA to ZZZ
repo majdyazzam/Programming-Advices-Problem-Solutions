@@ -1,0 +1,31 @@
+#include <iostream>
+using namespace std;
+
+int readNnumber() {
+    int num = 0;
+   
+    do {
+cout << "Please Enter Positive Number : " << endl;
+        cin >> num;
+    } while (num < 0);
+        
+    return num;
+}
+void printAllWordsFromAAAtoZZZ() {
+    for (int i = 65; i < 91; i++) {
+        for (int j = i; j < 91; j++) {
+            for (int k = i; k < 91; k++) {
+                cout << char(i) << char(j) << char(k) << endl;
+
+            }
+            
+        }
+        
+    }
+}
+int main()
+{
+    printAllWordsFromAAAtoZZZ();
+   
+}
+
