@@ -1,0 +1,29 @@
+#include <iostream>
+using namespace std;
+
+int readNnumber() {
+    int num = 0;
+   
+    do {
+cout << "Please Enter Positive Number : " << endl;
+        cin >> num;
+    } while (num < 0);
+        
+    return num;
+}
+void InvertedLetterPattern(int number) {
+    number += 65;
+    for (int i = number; i >= 65; i--) {
+        for (int j = i; j >= 65; j--) {
+            cout << (char)i;
+        }
+        cout << endl;
+    }
+}
+int main()
+{
+ 
+    InvertedLetterPattern(readNnumber());
+
+   
+}
