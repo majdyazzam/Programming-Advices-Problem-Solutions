@@ -12,16 +12,23 @@ cout << "Please Enter Positive Number : " << endl;
     return num;
 }
 void printAllWordsFromAAAtoZZZ() {
+    cout << "\n";
+    string word;
     for (int i = 65; i < 91; i++) {
         for (int j = i; j < 91; j++) {
             for (int k = i; k < 91; k++) {
-                cout << char(i) << char(j) << char(k) << endl;
+                word += char(i);
+                word += char(j);
+                word += char(k);
 
+                cout << word << endl;
+                word = "";
             }
             
         }
         
     }
+    
 }
 int main()
 {
